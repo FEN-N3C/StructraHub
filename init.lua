@@ -1,5 +1,4 @@
-local BASE =
-	"https://raw.githubusercontent.com/FEN-N3C/Axis-Hub/main/"
+local BASE = "https://raw.githubusercontent.com/FEN-N3C/Axis-Hub/main/"
 
 local function Load(file)
 	return loadstring(game:HttpGet(BASE .. file))()
