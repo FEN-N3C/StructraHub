@@ -9,7 +9,10 @@ function UI.Init(Config)
 		Title = "Aimbot",
 		SubTitle = "internal",
 		Theme = "Dark",
-		Acrylic = true
+		Acrylic = true,
+
+		-- REQUIRED in current Fluent
+		Size = UDim2.fromOffset(580, 460)
 	})
 
 	local Tab = Window:AddTab({ Title = "Aimbot", Icon = "crosshair" })
@@ -31,5 +34,3 @@ function UI.Init(Config)
 		end
 	})
 end
-
-return UI
