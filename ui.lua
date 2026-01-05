@@ -32,7 +32,18 @@ function UI.Init(Config)
 
     local Options = Fluent.Options
 
-    -- Add Toggle for Aimbot
+    local AimKeybind = Tabs.Main:AddKeybind("AimKey", {
+        Title = "Aim Key",
+        Mode = "Hold",
+        Default = "MB2",
+    })
+    
+    Config.HoldingKey = false
+
+    AimKeybind:OnChanged(function(held)
+        Config.HoldingKey = held
+    end)
+    
     local Toggle = Tabs.Main:AddToggle("Enabled", {
         Title = "Aimbot",
         Default = Config.Enabled
