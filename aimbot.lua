@@ -74,7 +74,8 @@ end
 
 function Aimbot.Start(Config)
 	RunService.RenderStepped:Connect(function()
-		if not Config.Enabled then return end
+		-- must be enabled AND holding key
+		if not Config.Enabled or not Config.HoldingKey then return end
 		if not LocalPlayer.Character then return end
 
 		local target = GetClosestTarget(Config)
