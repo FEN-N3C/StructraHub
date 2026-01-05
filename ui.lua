@@ -38,12 +38,6 @@ function UI.Init(Config)
         Default = "MouseRight",
     })
     
-    Config.HoldingKey = false
-
-    AimKeybind:OnChanged(function(held)
-        Config.HoldingKey = held
-    end)
-    
     local Toggle = Tabs.Main:AddToggle("Enabled", {
         Title = "Aimbot",
         Default = Config.Enabled
