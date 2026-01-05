@@ -35,7 +35,7 @@ function UI.Init(Config)
     local AimKeybind = Tabs.Main:AddKeybind("AimKey", {
         Title = "Aim Key",
         Mode = "Hold",
-        Default = "MB2",
+        Default = "MouseRight",
     })
     
     Config.HoldingKey = false
