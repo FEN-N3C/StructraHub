@@ -14,11 +14,10 @@ local InterfaceManager = loadstring(game:HttpGet(
 ))()
 
 function UI.Init(Config)
-    -- Create Window
     local Window = Fluent:CreateWindow({
         Title = "AxisHub",
-        SubTitle = "internal",
-        Size = UDim2.fromOffset(580, 460), -- REQUIRED
+        SubTitle = "V1.0.0-B",
+        Size = UDim2.fromOffset(580, 460),
         Theme = "Dark",
         Acrylic = true,
         TabWidth = 160,
@@ -47,22 +46,22 @@ function UI.Init(Config)
         Config.Enabled = v
     end)
 
-    local AimbotKeybind = Tabs.Main:AddKeybind("AimbotToggleKey", {
-        Title = "Toggle Aimbot",
-        Mode = "Press",  -- triggers callback on each key press
-        Default = "None",
-    })
+    --local AimbotKeybind = Tabs.Main:AddKeybind("AimbotToggleKey", {
+        --Title = "Toggle Aimbot",
+        --Mode = "Press",  -- triggers callback on each key press
+        --Default = "None",
+    --})
 
-    AimbotKeybind:OnChanged(function()
-        local newState = not Config.Enabled
-        Toggle:SetValue(newState) -- updates UI + Config
+    --AimbotKeybind:OnChanged(function()
+        --local newState = not Config.Enabled
+        --Toggle:SetValue(newState) -- updates UI + Config
 
-        Fluent:Notify({
-            Title = "Aimbot",
-            Content = newState and "Enabled" or "Disabled",
-            Duration = 1.5
-        })
-    end)
+        --Fluent:Notify({
+            --Title = "Aimbot",
+            --Content = newState and "Enabled" or "Disabled",
+            --Duration = 1.5
+        --})
+    --end)
 
     local TeamToggle = Tabs.Main:AddToggle("TeamCheck", {
         Title = "Team Check",
