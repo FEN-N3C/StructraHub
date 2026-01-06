@@ -1,9 +1,9 @@
 local Config = {
     Enabled = false,
-    TeamCheck = true,
-    DeadCheck = true,
-    WallCheck = true,
-    Prediction = 0.13,
+    TeamCheck = false,
+    DeadCheck = false,
+    WallCheck = false,
+    Prediction = 0,
     LockType = "ClosestToCursor",
     
     LockPart = "HumanoidRootPart",
