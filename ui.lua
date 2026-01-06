@@ -37,7 +37,22 @@ function UI.Init(Config)
         Mode = "Hold",
         Default = "MouseRight",
     })
-    
+
+    local DisableKeybind = Tabs.Main:AddKeybind("DisableAimbotKey", {
+        Title = "Aimbot Key",
+        Description = "Toggles aimbot",
+        Mode = "Toggle",
+        Default = nil 
+    })
+
+    DisableKeybind:OnChanged(function()
+        -- Only act when the keybind is pressed ON
+        if DisableKeybind:GetState() then
+            Config.Enabled = false
+            Options.Enabled:SetValue(false)
+        end
+    end)
+
     local Toggle = Tabs.Main:AddToggle("Enabled", {
         Title = "Aimbot",
         Default = Config.Enabled
