@@ -32,29 +32,26 @@ function UI.Init(Config)
 
     local Options = Fluent.Options
 
-    local AimKeybind = Tabs.Main:AddKeybind("AimKey", {
-        Title = "Aim Key",
-        Mode = "Hold",
-        Default = "MouseRight",
-    })
-
-    local DisableKeybind = Tabs.Main:AddKeybind("DisableAimbotKey", {
-        Title = "Aimbot Key",
+    local AimbotKeybind = Tabs.Main:AddKeybind("AimbotToggleKey", {
+        Title = "Aimbot Toggle Key",
+        Description = "Enable / Disable aimbot",
         Mode = "Hold",
         Default = "None",
     })
 
-    DisableKeybind:OnChanged(function(pressed)
-        if pressed then
-            Config.Enabled = false
-            Options.Enabled:SetValue(false)
-    
-            Fluent:Notify({
-                Title = "Aimbot Disabled",
-                Content = "Panic key activated",
-                Duration = 2
-            })
-        end
+
+    AimbotKeybind:OnChanged(function(pressed)
+        if not pressed then return end
+
+        local newState = not Config.Enabled
+        Config.Enabled = newState
+        Options.Enabled:SetValue(newState)
+
+        Fluent:Notify({
+            Title = "Aimbot",
+            Content = newState and "Enabled" or "Disabled",
+            Duration = 1.5
+        })
     end)
     
     local Toggle = Tabs.Main:AddToggle("Enabled", {
