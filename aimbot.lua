@@ -14,12 +14,18 @@ local function IsAlive(character)
     return hum and hum.Health > 0
 end
 
-local function IsVisible(origin, target)
+local function IsVisible(origin, targetPart, targetCharacter)
     local params = RaycastParams.new()
     params.FilterType = Enum.RaycastFilterType.Exclude
-    params.FilterDescendantsInstances = { LocalPlayer.Character }
+    params.FilterDescendantsInstances = {
+        LocalPlayer.Character,
+        targetCharacter
+    }
 
-    return workspace:Raycast(origin, target - origin, params) == nil
+    local direction = targetPart.Position - origin
+    local result = workspace:Raycast(origin, direction, params)
+
+    return result == nil
 end
 
 local function WorldToScreen(pos)
