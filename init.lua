@@ -11,4 +11,4 @@ local Aimbot = Load("aimbot.lua")
 UI.Init(Config)
 Aimbot.Start(Config, Fluent.Options)
 
-print("loaded fine")
+print("Successfully loaded AxisHub (V1.0.0-A)!")
