@@ -90,6 +90,15 @@ function UI.Init(Config)
         Config.WallCheck = v
     end)
 
+    local FriendToggle = Tabs.Main:AddToggle("FriendCheck", {
+        Title = "Friend Check",
+        Default = Config.FriendCheck
+    })
+
+    FriendToggle:OnChanged(function(v)
+        Config.FriendCheck = v
+    end)
+
     local PredictionSlider = Tabs.Main:AddSlider("Prediction", {
         Title = "Prediction",
         Description = "How far ahead to predict",
