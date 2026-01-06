@@ -3,6 +3,7 @@ local Config = {
     TeamCheck = false,
     DeadCheck = false,
     WallCheck = false,
+    FriendCheck = false,
     Prediction = 0,
     LockType = "ClosestToCursor",
     
