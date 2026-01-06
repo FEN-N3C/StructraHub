@@ -42,21 +42,13 @@ function UI.Init(Config)
 
     local AimbotKeybind = Tabs.Main:AddKeybind("AimbotToggleKey", {
         Title = "Aimbot Key",
-        Mode = "Hold",
+        Mode = "Toggle",
         Default = "None",
     })
 
-    AimbotKeybind:OnChanged(function(pressed)
-        if not pressed then return end
-    
+    AimbotKeybind:OnChanged(function()
         local newState = not Config.Enabled
-        Toggle:SetValue(newState) -- THIS updates UI + Config
-
-        Fluent:Notify({
-            Title = "Aimbot",
-            Content = newState and "Enabled" or "Disabled",
-            Duration = 1.5
-        })
+        Toggle:SetValue(newState)
     end)
 
     local TeamToggle = Tabs.Main:AddToggle("TeamCheck", {
@@ -67,7 +59,6 @@ function UI.Init(Config)
     TeamToggle:OnChanged(function(v)
         Config.TeamCheck = v
     end)
-    Options.TeamCheck:SetValue(Config.TeamCheck)
 
     -- DeadCheck Toggle
     local DeadToggle = Tabs.Main:AddToggle("DeadCheck", {
@@ -77,7 +68,6 @@ function UI.Init(Config)
     DeadToggle:OnChanged(function(v)
         Config.DeadCheck = v
     end)
-    Options.DeadCheck:SetValue(Config.DeadCheck)
 
     -- WallCheck Toggle
     local WallToggle = Tabs.Main:AddToggle("WallCheck", {
@@ -87,9 +77,7 @@ function UI.Init(Config)
     WallToggle:OnChanged(function(v)
         Config.WallCheck = v
     end)
-    Options.WallCheck:SetValue(Config.WallCheck)
 
-    -- Prediction Slider
     local PredictionSlider = Tabs.Main:AddSlider("Prediction", {
         Title = "Prediction",
         Description = "How far ahead to predict",
@@ -134,7 +122,6 @@ function UI.Init(Config)
     RandomToggle:OnChanged(function(v)
         Config.RandomizePart = v
     end)
-    Options.RandomizePart:SetValue(Config.RandomizePart)
 
     local RandomInterval = Tabs.Main:AddSlider("RandomizeInterval", {
         Title = "Randomize Interval",
