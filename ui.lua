@@ -87,7 +87,7 @@ function UI.Init(Config)
         Default = Config.Prediction
     })
     PredictionSlider:OnChanged(function(v)
-        Config.Prediction = v
+        Config.Prediction = tonumber(v)
     end)
     PredictionSlider:SetValue(Config.Prediction)
 
@@ -133,7 +133,7 @@ function UI.Init(Config)
         Default = Config.RandomizeInterval
     })
     RandomInterval:OnChanged(function(v)
-        Config.RandomizeInterval = v
+        Config.RandomizeInterval = tonumber(v)
     end)
     RandomInterval:SetValue(Config.RandomizeInterval)
     
