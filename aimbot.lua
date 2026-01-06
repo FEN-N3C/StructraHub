@@ -59,7 +59,7 @@ local function GetClosestTarget(Config)
         local part = GetTargetPart(char, Config)
         if not part then continue end
 
-        if Config.WallCheck and not IsVisible(Camera.CFrame.Position, part.Position) then
+        if Config.WallCheck and not IsVisible(Camera.CFrame.Position, part, char) then
             continue
         end
 
