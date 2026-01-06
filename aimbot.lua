@@ -16,7 +16,7 @@ end
 
 local function IsVisible(origin, target)
     local params = RaycastParams.new()
-    params.FilterType = Enum.RaycastFilterType.Blacklist
+    params.FilterType = Enum.RaycastFilterType.Exclude
     params.FilterDescendantsInstances = { LocalPlayer.Character }
 
     return workspace:Raycast(origin, target - origin, params) == nil
