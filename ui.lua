@@ -39,7 +39,6 @@ function UI.Init(Config)
     Toggle:OnChanged(function(v)
         Config.Enabled = v
     end)
-    Options.Enabled:SetValue(Config.Enabled)
 
     local AimbotKeybind = Tabs.Main:AddKeybind("AimbotToggleKey", {
         Title = "Aimbot Key",
