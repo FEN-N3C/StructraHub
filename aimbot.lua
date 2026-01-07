@@ -12,8 +12,6 @@ local currentRandomPart = "HumanoidRootPart"
 
 local PARTS = { "HumanoidRootPart", "Head" }
 
--- ===== Utility =====
-
 local function IsAlive(character)
     local hum = character:FindFirstChildOfClass("Humanoid")
     return hum and hum.Health > 0
@@ -53,8 +51,6 @@ local function WorldToScreen(pos)
     return Vector2.new(screenPos.X, screenPos.Y), onScreen
 end
 
--- ===== Target Part Selection =====
-
 local function GetTargetPart(character, Config)
     local partName = Config.LockPart
 
@@ -72,8 +68,6 @@ local function GetTargetPart(character, Config)
 
     return character:FindFirstChild(partName)
 end
-
--- ===== Target Selection =====
 
 local function GetClosestTarget(Config)
     local closest
@@ -112,8 +106,6 @@ local function GetClosestTarget(Config)
 
     return closest
 end
-
--- ===== Main Loop =====
 
 function Aimbot.Start(Config, Options)
     RunService.RenderStepped:Connect(function()
