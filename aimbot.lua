@@ -135,7 +135,7 @@ function Aimbot.Start(Config, Options)
             FOVCircle.Position = Vector2.new(Mouse.X, Mouse.Y)
             FOVCircle.Radius = Config.FOVRadius
             FOVCircle.Thickness = Config.FOVThickness
-            FOVCircle.Transparency = Config.FOVOpacity
+            FOVCircle.Transparency = math.clamp(tonumber(Config.FOVOpacity) or 1, 0, 1)
             FOVCircle.Color = Config.FOVColor
         end
          
