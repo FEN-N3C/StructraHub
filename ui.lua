@@ -25,6 +25,7 @@ function UI.Init(Config)
 
     local Tabs = {
         Main = Window:AddTab({ Title = "Aimbot", Icon = "crosshair" }),
+        FOV = Window:AddTab({ Title = "FOV", Icon = "circle-dot" }),
         Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
     }
 
@@ -151,6 +152,64 @@ function UI.Init(Config)
         Config.RandomizeInterval = tonumber(v)
     end)
     RandomInterval:SetValue(Config.RandomizeInterval)
+
+    local FOVToggle = Tabs.FOV:AddToggle("FOVEnabled", {
+        Title = "Enable FOV Lock",
+        Description = "Only lock onto players inside FOV",
+        Default = Config.FOVEnabled
+    })
+    FOVToggle:OnChanged(function(v)
+        Config.FOVEnabled = v
+    end)
+
+    local FOVVisualToggle = Tabs.FOV:AddToggle("FOVVisible", {
+        Title = "Show FOV Circle",
+        Default = Config.FOVVisible
+    })
+    FOVVisualToggle:OnChanged(function(v)
+        Config.FOVVisible = v
+    end)
+
+    local FOVRadiusSlider = Tabs.FOV:AddSlider("FOVRadius", {
+        Title = "FOV Radius",
+        Min = 25,
+        Max = 500,
+        Rounding = 0,
+        Default = Config.FOVRadius
+    })
+    FOVRadiusSlider:OnChanged(function(v)
+        Config.FOVRadius = v
+    end)
+
+    local FOVThicknessSlider = Tabs.FOV:AddSlider("FOVThickness", {
+        Title = "FOV Thickness",
+        Min = 1,
+        Max = 10,
+        Rounding = 0,
+        Default = Config.FOVThickness
+    })
+    FOVThicknessSlider:OnChanged(function(v)
+        Config.FOVThickness = v
+    end)
+
+    local FOVOpacitySlider = Tabs.FOV:AddSlider("FOVOpacity", {
+        Title = "FOV Opacity",
+        Min = 0,
+        Max = 1,
+        Rounding = 2,
+        Default = Config.FOVOpacity
+    })
+    FOVOpacitySlider:OnChanged(function(v)
+        Config.FOVOpacity = v
+    end)
+
+    local FOVColorPicker = Tabs.FOV:AddColorpicker("FOVColor", {
+        Title = "FOV Color",
+        Default = Config.FOVColor
+    })
+    FOVColorPicker:OnChanged(function(v)
+        Config.FOVColor = v
+    end)
     
     SaveManager:SetLibrary(Fluent)
     InterfaceManager:SetLibrary(Fluent)
