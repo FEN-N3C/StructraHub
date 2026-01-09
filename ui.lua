@@ -203,7 +203,7 @@ function UI.Init(Config)
         Config.FOVOpacity = tonumber(v) or 1
     end)
 
-    local FOVColorPicker = Tabs.FOV:AddColorpicker("FOVColor", {
+    local FOVColorPicker = Tabs.FOV:AddColorPicker("FOVColor", {
         Title = "Color",
         Default = Config.FOVColor
     })
