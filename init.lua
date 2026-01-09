@@ -11,4 +11,4 @@ local Aimbot = Load("aimbot.lua")
 UI.Init(Config)
 Aimbot.Start(Config, Fluent.Options)
 
-print("Successfully loaded StructraHub (V1.0.0)!")
+print("Successfully loaded StructraHub (V1.1.0)!")
