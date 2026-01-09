@@ -2,6 +2,8 @@ local Aimbot = {}
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
 local Camera = workspace.CurrentCamera
 
 local LocalPlayer = Players.LocalPlayer
@@ -13,6 +15,15 @@ local currentRandomPart = "HumanoidRootPart"
 local PARTS = { "HumanoidRootPart", "Head" }
 local Drawing = Drawing or nil
 
+local function GetMousePosition()
+    local mousePos = UserInputService:GetMouseLocation()
+    local inset = GuiService:GetGuiInset()
+    return Vector2.new(
+        mousePos.X - inset.X,
+        mousePos.Y - inset.Y
+    )
+end
+
 local FOVCircle = Drawing and Drawing.new("Circle")
 if FOVCircle then
     FOVCircle.Filled = false
@@ -22,8 +33,10 @@ end
 local function UpdateFOV(Config)
     if not FOVCircle then return end
 
-    FOVCircle.Visible = Config.FOVVisible
-    FOVCircle.Position = Vector2.new(Mouse.X, Mouse.Y)
+    local mousePos = GetMousePosition()
+
+    FOVCircle.Visible = Config.FOVEnabled and Config.FOVVisible
+    FOVCircle.Position = mousePos
     FOVCircle.Radius = Config.FOVRadius
     FOVCircle.Thickness = Config.FOVThickness
     FOVCircle.Transparency = math.clamp(Config.FOVOpacity or 1, 0, 1)
@@ -31,7 +44,7 @@ local function UpdateFOV(Config)
 end
 
 local function IsInsideFOV(screenPos, radius)
-    local mousePos = Vector2.new(Mouse.X, Mouse.Y)
+    local mousePos = GetMousePosition()
     return (screenPos - mousePos).Magnitude <= radius
 end
 
@@ -123,7 +136,7 @@ local function GetClosestTarget(Config)
                 continue
             end
 
-            distance = (screenPos - Vector2.new(Mouse.X, Mouse.Y)).Magnitude
+            distance = (screenPos - GetMousePosition()).Magnitude
         end
 
         if distance < shortest then
