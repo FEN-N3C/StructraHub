@@ -1,5 +1,5 @@
-# 🔷 Axis-Hub
-**AxisHub** is a Roblox internal GUI and aimbot framework designed for fast, flexible, and clean gameplay enhancements. It utilizes Fluent UI to provide a sleek, customizable interface with fully functional aimbot controls.
+# 🔷 StructraHub
+**StructraHub** is a Roblox internal GUI and aimbot framework designed for fast, flexible, and clean gameplay enhancements. It utilizes Fluent UI to provide a sleek, customizable interface with fully functional aimbot controls.
 
 ## Aimbot
 - Toggleable aimbot system
@@ -23,6 +23,6 @@
 
 # 🔗 Loadstring
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/FEN-N3C/Axis-Hub/main/init.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FEN-N3C/StructraHub/main/init.lua"))()
 ```
 sum slight PART2  broOOO!!!!!!!!!!!!
