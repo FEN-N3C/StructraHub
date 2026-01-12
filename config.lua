@@ -19,6 +19,15 @@ local Config = {
     FOVOpacity = 1,
     FOVColor = Color3.fromRGB(255, 255, 255)
 
+    -- ESP
+    ESPEnabled = false,
+    ESPBoxes = false,
+    ESPNames = false,
+    ESPHealthbars = false,
+    ESPDistance = false,
+    ESPTracers = false,
+    ESPHeadbox = false,
+    
     }
 
 return Config
