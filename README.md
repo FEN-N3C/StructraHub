@@ -2,7 +2,7 @@
 **StructraHub** is a Roblox internal GUI and aimbot framework designed for fast, flexible, and clean gameplay enhancements. It utilizes Fluent UI to provide a sleek, customizable interface with fully functional aimbot controls.
 
 ## Aimbot
-- Toggleable aimbot system
+- Toggleable aimbot
 - Team check
 - Dead check
 - Wall check
@@ -10,7 +10,7 @@
 - Prediction system
 - Lock type
 - Lock part
-- Randomization: randomly switch between target parts at a configurable interval.
+- Part randomization
 - Keybind support
 
 ## User Interface
