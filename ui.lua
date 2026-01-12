@@ -26,6 +26,7 @@ function UI.Init(Config)
     local Tabs = {
         Main = Window:AddTab({ Title = "Aimbot", Icon = "crosshair" }),
         FOV = Window:AddTab({ Title = "FOV", Icon = "circle-dot" }),
+        ESP = Window:AddTab({ Title = "ESP", Icon = "eye" }),
         Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
     }
 
@@ -209,6 +210,65 @@ function UI.Init(Config)
     })
     FOVColorPicker:OnChanged(function(v)
         Config.FOVColor = v
+    end)
+
+    -- ESP MAIN TOGGLE
+    local ESPToggle = Tabs.ESP:AddToggle("ESPEnabled", {
+        Title = "ESP",
+        Description = "Master ESP toggle",
+        Default = Config.ESPEnabled
+    })
+
+    ESPToggle:OnChanged(function(v)
+        Config.ESPEnabled = v
+    end)
+
+    -- BOXES
+    Tabs.ESP:AddToggle("ESPBoxes", {
+        Title = "Boxes",
+        Default = Config.ESPBoxes
+    }):OnChanged(function(v)
+        Config.ESPBoxes = v
+    end)
+
+    -- NAMES
+    Tabs.ESP:AddToggle("ESPNames", {
+        Title = "Names",
+        Default = Config.ESPNames
+    }):OnChanged(function(v)
+        Config.ESPNames = v
+    end)
+
+    -- HEALTHBARS
+    Tabs.ESP:AddToggle("ESPHealthbars", {
+        Title = "Healthbars",
+        Default = Config.ESPHealthbars
+    }):OnChanged(function(v)
+        Config.ESPHealthbars = v
+    end)
+
+    -- DISTANCE
+    Tabs.ESP:AddToggle("ESPDistance", {
+        Title = "Distance",
+        Default = Config.ESPDistance
+    }):OnChanged(function(v)
+        Config.ESPDistance = v
+    end)
+
+    -- TRACERS
+    Tabs.ESP:AddToggle("ESPTracers", {
+        Title = "Tracers",
+        Default = Config.ESPTracers
+    }):OnChanged(function(v)
+        Config.ESPTracers = v
+    end)
+
+    -- HEADBOX
+    Tabs.ESP:AddToggle("ESPHeadbox", {
+        Title = "Headbox",
+        Default = Config.ESPHeadbox
+    }):OnChanged(function(v)
+        Config.ESPHeadbox = v
     end)
     
     SaveManager:SetLibrary(Fluent)
