@@ -6,7 +6,15 @@ local VERSION = (MODE == "DEV") and "V1.2.0" or "V1.1.0"
 local BASE = ("https://raw.githubusercontent.com/FEN-N3C/StructraHub/%s/"):format(BRANCH)
 
 local function Load(file)
-    return loadstring(game:HttpGet(BASE .. file))()
+    local url = BASE .. file
+    local source = game:HttpGet(url)
+
+    assert(source and #source > 0, "Failed to fetch " .. file)
+
+    local chunk, err = loadstring(source)
+    assert(chunk, "Loadstring failed for " .. file .. ": " .. tostring(err))
+
+    return chunk()
 end
 
 local Config = Load("config.lua")
