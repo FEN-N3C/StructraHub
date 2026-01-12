@@ -17,7 +17,7 @@ local Config = {
     FOVRadius = 120,
     FOVThickness = 2,
     FOVOpacity = 1,
-    FOVColor = Color3.fromRGB(255, 255, 255)
+    FOVColor = Color3.fromRGB(255, 255, 255),
 
     -- ESP
     ESPEnabled = false,
