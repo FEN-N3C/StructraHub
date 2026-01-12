@@ -1,4 +1,4 @@
-local BASE = "https://raw.githubusercontent.com/FEN-N3C/StructraHub/main/"
+local BASE = "https://raw.githubusercontent.com/FEN-N3C/StructraHub/test/" -- DONT FORGET TO CHANGE THIS BACK TO MAIN RETARD
 
 local function Load(file)
 	return loadstring(game:HttpGet(BASE .. file))()
