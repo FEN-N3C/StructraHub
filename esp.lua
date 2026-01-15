@@ -90,16 +90,9 @@ function ESP.Start(Config)
 
             -- BOX
             if Config.ESPEnabled and Config.ESPBoxes then
-                local distance = (Camera.CFrame.Position - root.Position).Magnitude
-
-                -- Scale box inversely with distance
-                local scale = math.clamp(1 / distance * 1000, 0.8, 3)
-
-                local height = math.clamp((rootPos.Y - headPos.Y) * 2 * scale, 20, 350)
-                local width = height / 1.6
-
-                draw.Box.Size = Vector2.new(width, height)
-                draw.Box.Position = Vector2.new(rootPos.X - width / 2, headPos.Y)
+                local height = math.clamp((rootPos.Y - headPos.Y) * 2, 0, 300)
+                draw.Box.Size = Vector2.new(height/1.5, height)
+                draw.Box.Position = Vector2.new(rootPos.X - height/3, headPos.Y)
                 draw.Box.Visible = true
             else
                 draw.Box.Visible = false
