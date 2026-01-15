@@ -16,12 +16,7 @@ local PARTS = { "HumanoidRootPart", "Head" }
 local Drawing = Drawing or nil
 
 local function GetMousePosition()
-    local mousePos = UserInputService:GetMouseLocation()
-    local inset = GuiService:GetGuiInset()
-    return Vector2.new(
-        mousePos.X - inset.X,
-        mousePos.Y - inset.Y
-    )
+    return UserInputService:GetMouseLocation()
 end
 
 local FOVCircle = Drawing and Drawing.new("Circle")
