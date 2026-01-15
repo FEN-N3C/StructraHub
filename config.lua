@@ -4,6 +4,7 @@ local Config = {
     TeamCheck = false,
     DeadCheck = false,
     WallCheck = false,
+    ForceFieldCheck = false,
     FriendCheck = false,
     Prediction = 0,
     LockType = "ClosestToCursor",
