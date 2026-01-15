@@ -24,6 +24,7 @@ local ESP = Load("esp.lua")
 
 UI.Init(Config)
 Aimbot.Start(Config, Fluent.Options)
+ESP.Start(Config)
 
 print(
     MODE == "DEV"
