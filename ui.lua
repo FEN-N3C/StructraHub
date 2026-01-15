@@ -15,7 +15,7 @@ local InterfaceManager = loadstring(game:HttpGet(
 function UI.Init(Config)
     local Window = Fluent:CreateWindow({
         Title = "StructraHub",
-        SubTitle = "V1.1.0",
+        SubTitle = "V1.2.0",
         Size = UDim2.fromOffset(580, 460),
         Theme = "Dark",
         Acrylic = true,
